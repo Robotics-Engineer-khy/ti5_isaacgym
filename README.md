@@ -1,7 +1,7 @@
 ## Installation
 
-1. Generate a new Python virtual environment with Python 3.8 using `conda create -n myenv python=3.8`.
-2. For the best performance, we recommend using NVIDIA driver version 525 `sudo apt install nvidia-driver-525`. The minimal driver version supported is 515. If you're unable to install version 525, ensure that your system has at least version 515 to maintain basic functionality.
+1. Generate a new Python virtual environment with Python 3.8 using `conda create -n isaacgym python=3.8`.
+2. For the best performance, we recommend using NVIDIA driver version 535 `sudo apt install nvidia-driver-535`. The minimal driver version supported is 515. If you're unable to install version 535, ensure that your system has at least version 515 to maintain basic functionality.
 3. Install PyTorch 1.13 with Cuda-11.7:
    - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
 4. Install numpy-1.23 with `conda install numpy=1.23`.
@@ -14,28 +14,26 @@
    - Clone this repository.
    - `cd humanoid_gym && pip install -e .`
 
-
-
 ## Usage Guide
 
 #### Examples
 
 ```bash
-# Launching PPO Policy Training for 'v1' Across 8192 Environments
+# Launching PPO Policy Training for 'ti5' Across 8192 Environments
 # This command initiates the PPO algorithm-based training for the humanoid task.
-python scripts/train.py --task=humanoid_ppo --run_name v1 --headless --num_envs 8192
+python scripts/train.py --task=t1_dh_stand --run_name ti5 --headless --num_envs 8192
 
-# Evaluating the Trained PPO Policy 'v1'
-# This command loads the 'v1' policy for performance assessment in its environment. 
+# Evaluating the Trained PPO Policy 'ti5'
+# This command loads the 'ti5' policy for performance assessment in its environment. 
 # Additionally, it automatically exports a JIT model, suitable for deployment purposes.
-python scripts/play.py --task=humanoid_ppo --run_name v1
+python scripts/play.py --task=t1_dh_stand --run_name ti5
 
 # Implementing Simulation-to-Simulation Model Transformation
-# This command facilitates a sim-to-sim transformation using exported 'v1' policy.
-python scripts/sim2sim.py --load_model /path/to/logs/XBot_ppo/exported/policies/policy_1.pt
+# This command facilitates a sim-to-sim transformation using exported 'ti5' policy.
+python scripts/sim2sim.py --load_model /path/to/logs/t1_dh_stand/exported/policies/policy_1.pt
 
 # Run our trained policy
-python scripts/sim2sim.py --load_model /path/to/logs/XBot_ppo/exported/policies/policy_example.pt
+python scripts/sim2sim.py --load_model /path/to/logs/t1_dh_stand/exported/policies/policy_example.pt
 
 ```
 
@@ -53,11 +51,11 @@ python scripts/sim2sim.py --load_model /path/to/logs/XBot_ppo/exported/policies/
 #### 2. PPO Policy
 - **Training Command**: For training the PPO policy, execute:
   ```
-  python humanoid/scripts/train.py --task=humanoid_ppo --load_run log_file_path --name run_name
+  python humanoid/scripts/train.py --task=t1_dh_stand --load_run log_file_path --name run_name
   ```
 - **Running a Trained Policy**: To deploy a trained PPO policy, use:
   ```
-  python humanoid/scripts/play.py --task=humanoid_ppo --load_run log_file_path --name run_name
+  python humanoid/scripts/play.py --task=t1_dh_stand --load_run log_file_path --name run_name
   ```
 - By default, the latest model of the last run from the experiment folder is loaded. However, other run iterations/models can be selected by adjusting `load_run` and `checkpoint` in the training config.
 
