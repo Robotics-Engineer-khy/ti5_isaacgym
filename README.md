@@ -1,6 +1,6 @@
 ## Installation
 
-1. Generate a new Python virtual environment with Python 3.8 using `conda create -n isaacgym python=3.8`.
+1. Generate a new Python virtual environment with Python 3.8 using `conda create -n isaacgym python=3.8`,then `conda create -n isaacgym python=3.8`
 2. For the best performance, we recommend using NVIDIA driver version 535 `sudo apt install nvidia-driver-535`. The minimal driver version supported is 515. If you're unable to install version 535, ensure that your system has at least version 515 to maintain basic functionality.
 3. Install PyTorch 1.13 with Cuda-11.7:
    - `conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia`
