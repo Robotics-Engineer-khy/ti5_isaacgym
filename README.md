@@ -10,9 +10,9 @@
    - `cd isaacgym/python && pip install -e .`
    - Run an example with `cd examples && python 1080_balls_of_solitude.py`.
    - Consult `isaacgym/docs/index.html` for troubleshooting.
-6. Install humanoid-gym:
+6. Install ti5_isaacgym:
    - Clone this repository.
-   - `cd humanoid_gym && pip install -e .`
+   - `cd ti5_isaacgym && pip install -e .`
 
 ## Usage Guide
 
